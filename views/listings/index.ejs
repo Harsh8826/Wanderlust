@@ -1,0 +1,89 @@
+<% layout("/layouts/boilerplate") %>
+<style>
+#filters{
+  display:flex;
+  flex-wrap:wrap;
+}
+.filter{
+  text-align:center;
+  margin-right:2rem;
+  margin-top:1rem;
+  opacity:0.7;
+  
+}
+.filter:hover{
+  opacity:1;
+  cursor:pointer;
+  color:red;
+}
+.taxes{
+  border:2px solid black;
+  height:60px;
+  padding-top:15px;
+  border-radius: 10px;
+  opacity:0.7;
+  cursor:pointer;
+
+}
+.taxes:hover{
+  opacity:1;
+  color:red;
+}
+</style>
+
+
+<body>
+ 
+     <div id = "filters">
+      <div class = "filter">
+       <div><i class="fa-solid fa-fire"></i></div> 
+       <p>Trending</p> 
+      </div>
+       <div class = "filter">
+       <div><i class="fa-solid fa-bed"></i></div> 
+       <p>Rooms</p> 
+      </div>
+         <div class = "filter">
+       <div><i class="fa-solid fa-tractor"></i></div> 
+       <p>Farms</p> 
+      </div>
+         <div class = "filter">
+       <div><i class="fa-solid fa-mountain"></i></div> 
+       <p>Amazing Views</p> 
+      </div>
+         <div class = "filter">
+       <div><i class="fa-solid fa-umbrella-beach"></i></div> 
+       <p>Beach</p> 
+      </div>
+         <div class = "filter">
+       <div><i class="fa-solid fa-wind"></i></div> 
+       <p>OMG</p> 
+      </div>
+         <div class = "filter">
+       <div>><i class="fa-solid fa-bed"></i></div> 
+       <p>Amazing Pools</p> 
+      </div>
+         <div class = "taxes mt-3 ms-auto"><i class="fa-solid fa-toggle-on"></i>Display over taxes</div>
+     </div>
+  
+    <div class="row row-cols-lg-3 rows-cols-md-2 rows-cols-sm-1 mt-3"> <%for(let listing of alllisting){%>
+        <a href="/listings/<%= listing.id %>" style = "text-decoration: none;" >
+        <div class="card col listing-card">
+            <img src="<%=listing.image.url%>" class="card-img-top" alt="listing_image" style = "height:20rem"/>
+            <div class="card-img-overlay"></div>
+            <div class="card-body">
+              <p class="card-text">
+                   <b><%=listing.title%></b>
+                <br>
+                &#8377;<%=listing.price%> / night
+           
+        </p>
+            </div>
+          </div></a>
+            <%}%></div>
+   
+
+</body>
+
+    
+
